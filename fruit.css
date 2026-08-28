@@ -1,0 +1,70 @@
+body {
+    background: url("./background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
+
+#combo {
+    grid-column: 3;
+    justify-self: center;
+    margin-right: 50px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#board {
+    grid-column: 2;
+    width: 500px;
+    height: 500px;
+    background-color: lightblue;
+    border: 5px solid slategray;
+    border-radius: 10px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/* CSS */
+.button-54 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-54:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+}
+
+@media (min-width: 768px) {
+    .button-54 {
+        padding: 0.25em 0.75em;
+    }
+}
