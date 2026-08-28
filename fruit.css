@@ -4,42 +4,55 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
+    margin: 0;
+    padding: 10px;
+    /* Memberi sedikit jarak aman di layar HP */
 }
 
+/* --- TATA LETAK MOBILE (DEFAULT) --- */
 .game-container {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    flex-direction: column;
+    /* Papan dan tulisan combo disusun atas-bawah di HP */
     align-items: center;
     width: 100%;
-}
-
-#combo {
-    grid-column: 3;
-    justify-self: center;
-    margin-right: 50px;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    margin-top: 20px;
 }
 
 #board {
-    grid-column: 2;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    /* Ukuran maksimal di layar besar */
+    aspect-ratio: 1 / 1;
+    /* Memastikan papan SELALU kotak sempurna */
     background-color: lightblue;
     border: 5px solid slategray;
     border-radius: 10px;
-    margin: 20px 0;
+    box-sizing: border-box;
+    /* Memastikan border tidak merusak lebar 100% */
+
     display: flex;
     flex-wrap: wrap;
 }
 
 #board img {
-    width: 50px;
-    height: 50px;
+    width: 10%;
+    /* 10% x 10 kolom = 100% */
+    height: 10%;
+    /* 10% x 10 baris = 100% */
+    touch-action: none;
+    /* Penting untuk layar sentuh */
+    box-sizing: border-box;
 }
 
+#combo {
+    margin-top: 20px;
+    /* Jarak dari papan jika di layar HP */
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
 
-/* CSS */
+/* --- TOMBOL --- */
 .button-54 {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -55,6 +68,7 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    margin: 5px;
 }
 
 .button-54:active {
@@ -63,8 +77,30 @@ body {
     left: 5px;
 }
 
+/* --- TATA LETAK DESKTOP / TABLET (Layar Lebar) --- */
 @media (min-width: 768px) {
     .button-54 {
         padding: 0.25em 0.75em;
+    }
+
+    .game-container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        /* Kembali ke layout 3 kolom */
+    }
+
+    #board {
+        grid-column: 2;
+        /* Papan di tengah */
+        margin-top: 0;
+    }
+
+    #combo {
+        grid-column: 3;
+        /* Tulisan combo di kanan */
+        justify-self: start;
+        margin-top: 0;
+        margin-left: 30px;
+        /* Jarak antara combo dan papan */
     }
 }
