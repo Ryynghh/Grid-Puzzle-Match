@@ -126,7 +126,7 @@ function selectTile() {
 }
 
 function swapFruits(t1, t2) {
-    [t1.src, t2.src] = [t2.src, t1.src]; // Swap elegan ES6
+    [t1.src, t2.src] = [t2.src, t1.src];
 }
 
 function endGame() {
